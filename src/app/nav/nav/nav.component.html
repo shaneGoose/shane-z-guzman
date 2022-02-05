@@ -1,0 +1,28 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport
+      [attr.role]="'dialog'"
+      [mode]="'over'"
+      [opened]="(isHandset$ | async) ? (isHandset$ | async) === false : (isDelaying$ | async)">
+    <mat-toolbar>Menu</mat-toolbar>
+    <mat-nav-list>
+      <a mat-list-item routerLink="/" routerLinkActive="active" (click)="drawer.toggle()">home</a>
+      <a mat-list-item routerLink="/about-me" routerLinkActive="active" (click)="drawer.toggle()">about me</a>
+      <a mat-list-item routerLink="/career" routerLinkActive="active" (click)="drawer.toggle()">career</a>
+      <a mat-list-item routerLink="/hobbies" routerLinkActive="active" (click)="drawer.toggle()">hobbies</a>
+      <a mat-list-item routerLink="/contact-me" routerLinkActive="active" (click)="drawer.toggle()">contact me</a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <span>Shane Zachary Guzman</span>
+    </mat-toolbar>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>
